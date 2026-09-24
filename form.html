@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>Form đăng ký</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .form-container {
+            width: 500px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #3366cc;
+        }
+
+        label {
+            display: inline-block;
+            width: 130px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 280px;
+            padding: 7px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 70px;
+            vertical-align: top;
+        }
+
+        .hobby {
+            width: auto !important;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 9px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #3366cc;
+            color: white;
+        }
+
+        input[type="reset"] {
+            background-color: #999;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h2>ĐĂNG KÝ HỌC VIÊN</h2>
+
+    <form action="#" method="post">
+
+        <p>
+            <label for="yourname">Họ và tên:</label>
+            <input type="text" id="yourname" name="yourname">
+        </p>
+
+        <p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </p>
+
+        <p>
+            <label for="phone">Điện thoại:</label>
+            <input type="tel" id="phone" name="phone">
+        </p>
+
+        <p>
+            <label for="birthday">Ngày sinh:</label>
+            <input type="date" id="birthday" name="birthday">
+        </p>
+
+        <p>
+            <label>Giới tính:</label>
+            <input type="radio" name="gender" value="male"> Nam
+            <input type="radio" name="gender" value="female"> Nữ
+        </p>
+
+        <p>
+            <label>Sở thích:</label>
+            <input class="hobby" type="checkbox" name="hobby" value="reading"> Đọc sách
+            <input class="hobby" type="checkbox" name="hobby" value="music"> Âm nhạc
+            <input class="hobby" type="checkbox" name="hobby" value="sports"> Thể thao
+        </p>
+
+        <p>
+            <label for="course">Khóa học:</label>
+            <select id="course" name="course">
+                <option value="">-- Chọn khóa học --</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="javascript">JavaScript</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="address">Địa chỉ:</label>
+            <textarea id="address" name="address"></textarea>
+        </p>
+
+        <div class="buttons">
+            <input type="submit" value="Gửi thông tin">
+            <input type="reset" value="Nhập lại">
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
