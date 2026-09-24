@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khảo sát khách hàng</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+      background: #fff;
+    }
+
+    .survey {
+      width: 100%;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 30px 25px 50px;
+    }
+
+    h1 {
+      font-size: 27px;
+      font-weight: 500;
+      margin: 0 0 8px;
+    }
+
+    .description {
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .question {
+      margin-bottom: 25px;
+    }
+
+    .question-title {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    select {
+      width: 100%;
+      height: 32px;
+      padding: 4px 8px;
+      font-size: 14px;
+      border: 1px solid #888;
+      background: white;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    label.option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      margin: 0;
+    }
+
+    .other-input {
+      margin-left: 27px;
+      margin-top: -5px;
+      width: 155px;
+      height: 25px;
+      border: 1px solid #aaa;
+    }
+
+    .price {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+    }
+
+    .price input {
+      height: 27px;
+      border: 1px solid #aaa;
+    }
+
+    .dollar-input {
+      width: 80px;
+    }
+
+    .cent-input {
+      width: 25px;
+    }
+
+    .price-label {
+      font-size: 13px;
+      color: #555;
+      margin-left: 2px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 8px;
+      resize: vertical;
+      border: 1px solid #aaa;
+      font-family: Arial, sans-serif;
+    }
+
+    .submit-area {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    button {
+      padding: 10px 25px;
+      background: #e65b4f;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #d94b40;
+    }
+
+    .required {
+      color: #d00;
+    }
+
+    @media (max-width: 600px) {
+      .survey {
+        padding: 20px 15px 40px;
+      }
+
+      h1 {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="survey">
+
+  <h1>Khảo sát khách hàng</h1>
+
+  <div class="description">
+    Vui lòng dành vài phút để hoàn thành khảo sát về nhu cầu và mức độ hài lòng của bạn.
+  </div>
+
+  <form id="surveyForm">
+
+    <!-- Độ tuổi -->
+    <div class="question">
+      <label class="question-title">
+        Độ tuổi của bạn là?
+      </label>
+
+      <select name="age" required>
+        <option value="">-- Vui lòng lựa chọn --</option>
+        <option>18-24</option>
+        <option>25-34</option>
+        <option>35-44</option>
+        <option>45-54</option>
+        <option>55-64</option>
+        <option>65+</option>
+      </select>
+    </div>
+
+
+    <!-- Thu nhập -->
+    <div class="question">
+      <label class="question-title">
+        Mức thu nhập hàng năm của bạn?
+      </label>
+
+      <select name="income" required>
+        <option value="">-- Vui lòng lựa chọn --</option>
+        <option>Dưới 25 triệu đồng</option>
+        <option>25 - 50 triệu đồng</option>
+        <option>50 - 100 triệu đồng</option>
+        <option>100 - 200 triệu đồng</option>
+        <option>Trên 200 triệu đồng</option>
+      </select>
+    </div>
+
+
+    <!-- Giới tính -->
+    <div class="question">
+      <span class="question-title">Giới tính</span>
+
+      <div class="radio-group">
+
+        <label class="option">
+          <input type="radio" name="gender" value="Nam" required>
+          Nam
+        </label>
+
+        <label class="option">
+          <input type="radio" name="gender" value="Nữ">
+          Nữ
+        </label>
+
+        <label class="option">
+          <input type="radio" name="gender" value="Không muốn trả lời">
+          Không muốn trả lời
+        </label>
+
+        <label class="option">
+          <input type="radio" name="gender" value="Khác">
+          Khác
+        </label>
+
+        <input
+          type="text"
+          name="gender_other"
+          class="other-input"
+          placeholder="Nhập câu trả lời..."
+        >
+
+      </div>
+    </div>
+
+
+    <!-- Sản phẩm đã mua -->
+    <div class="question">
+
+      <span class="question-title">
+        Trong 2 tháng qua, bạn đã mua những sản phẩm nào?
+        <br>
+        <small>Vui lòng chọn tất cả đáp án phù hợp.</small>
+      </span>
+
+      <div class="checkbox-group">
+
+        <label class="option">
+          <input type="checkbox" name="products" value="Sản phẩm 1">
+          Sản phẩm 1
+        </label>
+
+        <label class="option">
+          <input type="checkbox" name="products" value="Sản phẩm 2">
+          Sản phẩm 2
+        </label>
+
+        <label class="option">
+          <input type="checkbox" name="products" value="Sản phẩm 3">
+          Sản phẩm 3
+        </label>
+
+      </div>
+    </div>
+
+
+    <!-- Tần suất sử dụng -->
+    <div class="question">
+
+      <span class="question-title">
+        Bạn sẽ sử dụng sản phẩm mới với tần suất như thế nào?
+      </span>
+
+      <div class="radio-group">
+
+        <label class="option">
+          <input type="radio" name="frequency" value="Hàng ngày" required>
+          Hàng ngày
+        </label>
+
+        <label class="option">
+          <input type="radio" name="frequency" value="Hàng tuần">
+          Hàng tuần
+        </label>
+
+        <label class="option">
+          <input type="radio" name="frequency" value="Hàng tháng">
+          Hàng tháng
+        </label>
+
+      </div>
+    </div>
+
+
+    <!-- Giá sản phẩm -->
+    <div class="question">
+
+      <span class="question-title">
+        Bạn sẵn sàng trả bao nhiêu cho sản phẩm mới?
+      </span>
+
+      <div class="price">
+
+        <span>₫</span>
+
+        <div>
+          <input
+            type="number"
+            name="price"
+            class="dollar-input"
+            min="0"
+            placeholder="0"
+          >
+          <div class="price-label">Đồng</div>
+        </div>
+
+        <span>,</span>
+
+        <div>
+          <input
+            type="number"
+            name="decimal"
+            class="cent-input"
+            min="0"
+            max="99"
+            placeholder="00"
+          >
+          <div class="price-label">Xu</div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Tính năng -->
+    <div class="question">
+
+      <label class="question-title">
+        Bạn muốn thấy những tính năng nào ở sản phẩm mới?
+      </label>
+
+      <textarea
+        name="features"
+        placeholder="Hãy chia sẻ ý kiến của bạn..."
+      ></textarea>
+
+    </div>
+
+
+    <!-- Mức độ hài lòng -->
+    <div class="question">
+
+      <span class="question-title">
+        Mức độ hài lòng của bạn đối với sản phẩm?
+      </span>
+
+      <div class="radio-group">
+
+        <label class="option">
+          <input type="radio" name="satisfaction" value="Rất không hài lòng">
+          Rất không hài lòng
+        </label>
+
+        <label class="option">
+          <input type="radio" name="satisfaction" value="Không hài lòng">
+          Không hài lòng
+        </label>
+
+        <label class="option">
+          <input type="radio" name="satisfaction" value="Bình thường">
+          Bình thường
+        </label>
+
+        <label class="option">
+          <input type="radio" name="satisfaction" value="Hài lòng">
+          Hài lòng
+        </label>
+
+        <label class="option">
+          <input type="radio" name="satisfaction" value="Rất hài lòng">
+          Rất hài lòng
+        </label>
+
+      </div>
+    </div>
+
+
+    <div class="submit-area">
+      <button type="submit">Gửi khảo sát</button>
+    </div>
+
+  </form>
+
+</div>
+
+
+<script>
+  document.getElementById("surveyForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    alert("Cảm ơn bạn đã hoàn thành khảo sát!");
+
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
